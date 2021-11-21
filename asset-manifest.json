@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/overx/static/css/main.518ce94c.chunk.css",
-    "main.js": "/overx/static/js/main.eb20775b.chunk.js",
-    "main.js.map": "/overx/static/js/main.eb20775b.chunk.js.map",
+    "main.js": "/overx/static/js/main.b12d0415.chunk.js",
+    "main.js.map": "/overx/static/js/main.b12d0415.chunk.js.map",
     "runtime-main.js": "/overx/static/js/runtime-main.67d83a2e.js",
     "runtime-main.js.map": "/overx/static/js/runtime-main.67d83a2e.js.map",
-    "static/js/2.ce771f75.chunk.js": "/overx/static/js/2.ce771f75.chunk.js",
-    "static/js/2.ce771f75.chunk.js.map": "/overx/static/js/2.ce771f75.chunk.js.map",
+    "static/css/2.383c0125.chunk.css": "/overx/static/css/2.383c0125.chunk.css",
+    "static/js/2.4323e42a.chunk.js": "/overx/static/js/2.4323e42a.chunk.js",
+    "static/js/2.4323e42a.chunk.js.map": "/overx/static/js/2.4323e42a.chunk.js.map",
     "index.html": "/overx/index.html",
-    "static/css/main.518ce94c.chunk.css.map": "/overx/static/css/main.518ce94c.chunk.css.map",
-    "static/js/2.ce771f75.chunk.js.LICENSE.txt": "/overx/static/js/2.ce771f75.chunk.js.LICENSE.txt"
+    "static/css/2.383c0125.chunk.css.map": "/overx/static/css/2.383c0125.chunk.css.map",
+    "static/js/2.4323e42a.chunk.js.LICENSE.txt": "/overx/static/js/2.4323e42a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.67d83a2e.js",
-    "static/js/2.ce771f75.chunk.js",
-    "static/css/main.518ce94c.chunk.css",
-    "static/js/main.eb20775b.chunk.js"
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.4323e42a.chunk.js",
+    "static/js/main.b12d0415.chunk.js"
   ]
 }

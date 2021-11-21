@@ -1,2 +1,0 @@
-(this.webpackJsonpfrontend=this.webpackJsonpfrontend||[]).push([[0],{10:function(n,t,e){"use strict";e.r(t);e(0);var o=e(3),r=e.n(o),c=(e(8),e(1));var s=function(){return Object(c.jsx)("h1",{children:"Hola mundo"})};r.a.render(Object(c.jsx)(s,{}),document.getElementById("root"))},8:function(n,t,e){}},[[10,1,2]]]);
-//# sourceMappingURL=main.eb20775b.chunk.js.map
