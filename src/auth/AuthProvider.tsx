@@ -5,15 +5,16 @@ interface ContextValueI {
     login: any;
     logged: boolean;
     logout: any;
+    user: any
 }
 
 export const AuthContext = createContext<ContextValueI | null>(null);
 
 export default function AuthProvider(props: any) {
-    const [user, setUser] = useState(null);
-  
+    const [user, setUser] = useState<object|null>(null);
+
     // login function
-    const login = (credentials: any): void => {
+    const login = (credentials: object): void => {
         setUser(credentials);
     }
 
@@ -24,7 +25,8 @@ export default function AuthProvider(props: any) {
     const contextValue:ContextValueI = {
         login,
         logged,
-        logout
+        logout,
+        user
     };
 
     return (
