@@ -10,7 +10,7 @@ export default function IndexPage() {
     useEffect(() => {
         setDimensions(window.innerWidth);
         console.log(dimenstions);
-    }, []);
+    }, [dimenstions]);
 
     return (
         <Container className="mt-4">

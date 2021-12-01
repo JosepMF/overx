@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { ButtonGroup, Form, Table } from "react-bootstrap";
+import { FormControl } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { Card, CardGroup, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import useAuth from "../../auth/useAuth"
 
 export default function AccountPage() {
     // tools of auth
     const tools = useAuth();
+
+    // create a new post state
+    const [newPost, setNewPost] = useState<object|null>(null);
+
+    // input change get value
+    function handlerChange(e: any): void {
+        setNewPost({...newPost, [e.target.name]: e.target.value});
+    }
+
+    // create new post function
+    function createNewPost(): void {
+        // test
+        console.log(newPost);
+    }
 
     return (
         <Container className="mt-4">
@@ -42,8 +57,35 @@ export default function AccountPage() {
                     </Card>
                     <Card bg="dark" className="mt-4">
                         <Card.Body>
-                            <Form>
-                                <Button variant="primary" className="form-control">create new Post</Button>
+                            <Form encType="multipart/form-data">
+                                <h4 className="text-center">Create Post</h4>
+                                <hr />
+                                <FormControl
+                                    name="postName"
+                                    onChange={handlerChange}
+                                    placeholder="postName"
+                                    type="text"
+                                    className="text-white"
+                                    style={{ backgroundColor: "rgba(0,0,0,0.3)", borderRadius: 50, borderColor: "transparent" }}
+                                />
+                                <FormControl
+                                    name="postDescription"
+                                    onChange={handlerChange}
+                                    type="text"
+                                    placeholder="postDescription"
+                                    style={{ backgroundColor: "rgba(0,0,0,0.3)", borderRadius: 50, borderColor: "transparent" }}
+                                    className="mt-1 text-white"
+                                />
+                                <FormControl
+                                    name="postFile"
+                                    onChange={handlerChange}
+                                    placeholder="postFile"
+                                    type="file"
+                                    style={{ backgroundColor: "rgba(0,0,0,0.3)", borderRadius: 50, borderColor: "transparent" }}
+                                    className="mt-1 text-white"
+                                    
+                                />
+                                <Button  variant="primary" onClick={() => createNewPost()} className="form-control mt-2" style={{borderRadius: 50}}>create new Post</Button>
                             </Form>
 
                             <hr/>
