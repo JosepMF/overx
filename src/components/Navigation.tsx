@@ -6,6 +6,9 @@ import routers from '../helpers/routers'
 export default function Navigation() {
     const tools: any = useAuth();
 
+    console.log(tools?.logged);
+    
+
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container fluid>

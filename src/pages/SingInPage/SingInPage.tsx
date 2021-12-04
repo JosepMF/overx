@@ -17,6 +17,7 @@ export default function SingInPage() {
 
     // login user on the system
     function handlerLogin(): void {
+        localStorage.setItem('user', JSON.stringify(userCredentials));
         tools.login(userCredentials);
     }
 

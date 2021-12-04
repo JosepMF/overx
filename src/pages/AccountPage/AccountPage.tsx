@@ -1,20 +1,21 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { ButtonGroup, Form, Table } from "react-bootstrap";
 import { FormControl } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import useAuth from "../../auth/useAuth"
 
 export default function AccountPage() {
-    // tools of auth
-    const tools = useAuth();
+    
+    //user
+    const res: any = localStorage.getItem('user');
+    const user: any = JSON.parse(res);
 
     // create a new post state
-    const [newPost, setNewPost] = useState<object|null>(null);
+    const [newPost, setNewPost] = useState<object | null>(null);
 
     // input change get value
     function handlerChange(e: any): void {
-        setNewPost({...newPost, [e.target.name]: e.target.value});
+        setNewPost({ ...newPost, [e.target.name]: e.target.value });
     }
 
     // create new post function
@@ -39,7 +40,7 @@ export default function AccountPage() {
                                 }}
                             />
                             <hr />
-                            <h3 className="text-primary">{tools?.user.userName}</h3>
+                            <h3 className="text-primary">{user.userName}</h3>
                             <hr />
                         </Card.Body>
                     </Card>
@@ -48,8 +49,8 @@ export default function AccountPage() {
                             <Card.Body>
                                 <h2 className="text-center">Information</h2>
                                 <hr />
-                                <b>Email: </b><span>{tools?.user.email}</span><br /><br />
-                                <b>Description: </b><span>{tools?.user?.userDescription ? "description" : <span>you haven't description, do you wont create your description? <span className="text-primary">press me</span></span>}</span><br /><br />
+                                <b>Email: </b><span>{user?.email}</span><br /><br />
+                                <b>Description: </b><span>{user?.userDescription ? "description" : <span>you haven't description, do you wont create your description? <span className="text-primary">press me</span></span>}</span><br /><br />
                                 <b>Total number of Views: </b><span>6</span><br /><br />
                                 <b>Total number of Viewers: </b><span>34</span>
                             </Card.Body>
@@ -83,13 +84,13 @@ export default function AccountPage() {
                                     type="file"
                                     style={{ backgroundColor: "rgba(0,0,0,0.3)", borderRadius: 50, borderColor: "transparent" }}
                                     className="mt-1 text-white"
-                                    
+
                                 />
-                                <Button  variant="primary" onClick={() => createNewPost()} className="form-control mt-2" style={{borderRadius: 50}}>create new Post</Button>
+                                <Button variant="primary" onClick={() => createNewPost()} className="form-control mt-2" style={{ borderRadius: 50 }}>create new Post</Button>
                             </Form>
 
-                            <hr/>
-                            <Table  striped bordered hover variant="dark">
+                            <hr />
+                            <Table striped bordered hover variant="dark">
                                 {/* test */}
                                 <thead>
                                     <th>Name</th>

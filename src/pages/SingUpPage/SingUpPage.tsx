@@ -15,6 +15,7 @@ export default function SingUpPage() {
 
     // register a new user
     function createUser(): void {
+        localStorage.setItem('user', JSON.stringify(userCredentials));
         tools.login(userCredentials);
     }
 

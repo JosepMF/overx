@@ -7,6 +7,7 @@ export default function IndexPage() {
     // dimensions of windows
     const [dimenstions, setDimensions] = useState<number>(0);
 
+    // set dimensions of the windows
     useEffect(() => {
         setDimensions(window.innerWidth);
         console.log(dimenstions);
