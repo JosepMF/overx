@@ -20,7 +20,7 @@ export const AuthContext = createContext<ContextValueI | null>(null);
 export default function AuthProvider(props: any) {
 
 
-    const [user, setUser] = useState<UserI | null>(JSON.parse(localStorage.user));
+    const [user, setUser] = useState<UserI | null>(null);
 
     // login function
     const login = (credentials: UserI): void => {
