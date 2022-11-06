@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    {% for post in posts %}
+    <div class="card bg-dark text-white mt-1 text-center">
+        <div class="card-body">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.description }}</p>
+            <p>{{ post.create_at }}</p>
+            <a href="/delete-post/{{ post.id }}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {% empty %}
+        <h3 class="text-white text-center">Aren't some posts :(</h3>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
