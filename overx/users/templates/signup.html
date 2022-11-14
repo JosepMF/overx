@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card bg-dark text-white text-center">
+  <div class="card-header">
+    <h3 class="card-title text-white text-center">SingUp</h3>
+  </div>
+  {% if error_messages %}
+  <div class="alert alert-danger" role="alert">{{ error_messages }}</div>
+  {% endif %}
+  <div class="card-body">
+    <form action="/signup/" method="post">
+      {% csrf_token %}
+      <input
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 100px;
+        "
+        type="text"
+        class="form-control"
+        placeholder="username"
+        name="username"
+        type="text"
+      />
+      <input
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 100px;
+        "
+        type="text"
+        class="form-control mt-1"
+        placeholder="email"
+        name="email"
+        type="email"
+      />
+      <input
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 100px;
+        "
+        type="text"
+        class="form-control mt-1"
+        placeholder="password"
+        name="password"
+        type="password"
+      />
+      <input
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 100px;
+        "
+        type="text"
+        class="form-control mt-1"
+        placeholder="repassword"
+        name="repassword"
+        type="password"
+      />
+      <button
+        class="btn btn-primary form-control mt-1"
+        style="border-radius: 100px"
+      >
+        SignUp
+      </button>
+    </form>
+  </div>
+  <div class="card-footer">
+    if you have been created one user, you must login in
+    <a href="/signin">signin</a>
+  </div>
+</div>
+
+{% endblock %}

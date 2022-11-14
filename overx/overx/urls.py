@@ -17,10 +17,14 @@ from django.contrib import admin
 from django.urls import path
 
 from posts import views as posts_views
+from users import views as users_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', posts_views.main_page, name="home"),
-    path('create-post/', posts_views.create_post, name="create post"),
-    path('delete-post/<post_id>', posts_views.delete_post, name="delete post")
+    path('create-post/', posts_views.create_post, name="create_post"),
+    path('delete-post/<post_id>', posts_views.delete_post, name="delete_post"),
+    path('signin/', users_views.signin, name="signin"),
+    path('signup/', users_views.signup, name="signup"),
+    path('signout/', users_views.signout, name="signout"),
 ]

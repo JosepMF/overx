@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from .models import Post
 
@@ -8,7 +9,7 @@ def main_page(request):
     posts = Post.objects.order_by('-id')
     return render(request, 'home.html', {'posts': posts})
 
-
+@login_required
 def create_post(request):
     post = Post()
 
@@ -24,7 +25,7 @@ def create_post(request):
 
     return render(request, 'create-post-template.html')
 
-
+@login_required
 def delete_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
 
