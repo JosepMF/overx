@@ -1,11 +1,49 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<form action="/create-post/" method="post"> {% csrf_token %}
-    <input type="text" name="title" placeholder="title">
-    <input type="text" name="description" placeholder="description">
-    <button type="submit">Create Post</button>
-</form>
+<div class="card bg-dark">
+  <div class="card-body text-center text-white">
+    <form action="/create-post/" method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="title"
+        placeholder="title"
+        class="form-control"
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 100px;
+        "
+      />
+      <input
+        type="file"
+        name="file"
+        placeholder="file"
+        class="form-control mt-1"
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 100px;
+        "
+      />
+      <textarea
+        type="text"
+        name="description"
+        placeholder="description"
+        class="form-control mt-1"
+        rows="3"
+        style="
+          border-color: transparent;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          border-radius: 10px;
+        "
+      ></textarea>
+      <button class="btn btn-primary form-control mt-1">Create Post</button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}

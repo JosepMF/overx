@@ -1,21 +1,83 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<div>
+<div style="width: 100%; display: flex; justify-content: space-between">
+  <div
+    style="
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    "
+  >
     {% for post in posts %}
-    <div class="card bg-dark text-white mt-1 text-center">
-        <div class="card-body">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.description }}</p>
-            <p>{{ post.create_at }}</p>
-            <a href="/delete-post/{{ post.id }}" class="btn btn-danger">Delete</a>
-        </div>
+    <div
+      class="card text-white mt-1"
+      style="background-color: rgba(0, 0, 0, 0.3)"
+    >
+      <div class="card-header">
+        <p>Posted by - @{{ post.username }}</p>
+      </div>
+      <div class="card-body text-center">
+        <h2>{{ post.title|striptags|truncatechars:90 }}</h2>
+        <p>{{ post.description|striptags|truncatechars:200 }}</p>
+        <p>{{ post.create_at }}</p>
+      </div>
     </div>
     {% empty %}
-        <h3 class="text-white text-center">Aren't some posts :(</h3>
+    <h3 class="text-white text-center">Aren't some posts :(</h3>
     {% endfor %}
-
+  </div>
+  <div>
+    <!-- form to create a new post-->
+    <div class="card" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="card-header">
+        <h3 class="card-title text-center text-primary">Create a New Post</h3>
+      </div>
+      <div class="card-body text-center text-white">
+        <form action="/create-post/" method="post">
+          {% csrf_token %}
+          <input
+            type="text"
+            name="title"
+            placeholder="title"
+            class="form-control"
+            style="
+              border-color: transparent;
+              background-color: rgba(0, 0, 0, 0.5);
+              color: #ffffff;
+              border-radius: 100px;
+            "
+          />
+          <input
+            type="file"
+            name="file"
+            placeholder="file"
+            class="form-control mt-2"
+            style="
+              border-color: transparent;
+              background-color: rgba(0, 0, 0, 0.5);
+              color: #ffffff;
+              border-radius: 100px;
+            "
+          />
+          <textarea
+            type="text"
+            name="description"
+            placeholder="description"
+            class="form-control mt-2"
+            rows="3"
+            style="
+              border-color: transparent;
+              background-color: rgba(0, 0, 0, 0.5);
+              color: #ffffff;
+              border-radius: 10px;
+            "
+          ></textarea>
+          <button class="btn btn-primary form-control mt-2">Create Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

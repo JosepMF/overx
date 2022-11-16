@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container mt-4 mb-2">
+  <div class="card" style="background-color: rgba(0, 0, 0, 0.3)">
+    <div class="card-header text-center text-white">
+      <h3>{{ user.username }}</h3>
+    </div>
+    <div class="card-body text-white">
+      <h4>Info</h4>
+      <hr />
+      <ul>
+        <li><b>email:</b> {{ user.email }}</li>
+      </ul>
+      <hr />
+      <h4>Yours Posts</h4>
+      <table class="table table-dark table-striped">
+        <thead>
+          <th>ID</th>
+          <th>title</th>
+          <th>description</th>
+          <th>created at</th>
+          <th>Options</th>
+        </thead>
+        <tbody>
+          {% for post in posts %}
+          <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.title|striptags|truncatechars:10 }}</td>
+            <td>{{ post.description|striptags|truncatechars:60 }}</td>
+            <td>{{ post.create_at }}</td>
+            <td>
+              <div class="btn-group">
+                <a href="/delete-post/{{ post.id }}" class="btn btn-danger">
+                  Delete
+                </a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

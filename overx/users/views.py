@@ -61,4 +61,3 @@ def signup(request):
     else:
         return HttpResponse("method not supported")
       
-        
